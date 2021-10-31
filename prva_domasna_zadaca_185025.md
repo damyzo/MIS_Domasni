@@ -16,3 +16,5 @@
 
 ## Мокап екрани
 
+Мокап екраните се наоѓаат на следниот линк: https://www.figma.com/file/WwGGLwj4eTBAx0UQ6HmZ7s/Untitled?node-id=0%3A1
+
