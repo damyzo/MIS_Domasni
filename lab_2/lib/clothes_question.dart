@@ -9,7 +9,7 @@ class ClothesQuestion extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      margin: EdgeInsets.all(2),
+      margin: EdgeInsets.all(5),
       child: Text(
         _questionContent,
         textAlign: TextAlign.center,
