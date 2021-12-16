@@ -8,9 +8,13 @@ class ClothesAnswer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      child: Text(answerText),
-      onPressed: () => _func(),
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+        child:ElevatedButton(
+      child: Text(answerText, style: const TextStyle(fontSize: 20, color: Colors.red),),
+      style: ElevatedButton.styleFrom(primary: Colors.green),
+      onPressed: () => _func(),)
+
     );
   }
 }

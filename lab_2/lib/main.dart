@@ -24,7 +24,20 @@ class _MyAppState extends State<MyApp> {
     print("I was tapped");
   }
 
-  var questions = ['question1', 'question2', 'question3'];
+  var questions = [
+    {
+      'question': 'Select Sweater',
+      'answer': ['Springfield', 'P&B', 'POLO']
+    },
+    {
+      'question': 'Select Jeans',
+      'answer': ['Levis', 'Bershka', 'P&B']
+    },
+    {
+      'question': 'Select shoes',
+      'answer': ['Nike', 'Adidas']
+    }
+  ];
   var _questionIndex = 0;
 
   @override
@@ -37,10 +50,11 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: [
-            ClothesQuestion(questions[_questionIndex]),
-            ClothesAnswer('Tap me 1', _iWasTapped),
-            ClothesAnswer('Tap me 2', _iWasTapped),
-            ClothesAnswer('Tap me 3', _iWasTapped),
+            ClothesQuestion(questions[_questionIndex]['question'].toString()),
+            ...(questions[_questionIndex]['answer'] as List<String>).map((answer){
+              return ClothesAnswer(answer, _iWasTapped);
+            }),
+
           ],
         ),
       ),
