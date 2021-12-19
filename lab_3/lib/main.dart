@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lab_3/exam_date.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,46 +14,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Lab3 Damjan Ilievski 185025'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
-  List<String> elements = [
-    'Prv',
-    'Vtor',
-    'Tret',
-    'Cetvrt',
-    'Pet',
-    'Sest',
-    'Sedum',
-    'Osum',
-    'Devet',
-    'Deset',
-    'Edinaeset',
-    'Dvanaeset',
-    'Trinaeset',
-    'Cetirinaeset',
-    'Petnaeset',
-    'Sesnaeset',
-    'Sedumnaeset',
-    'Osumnaeset',
-    'Devetnaeset',
-    'Dvaeset',
-  ];
 
   final String title;
 
@@ -61,24 +31,16 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-  
-  
+  String title = "Lab 3 185025";
+  final name_controler = TextEditingController();
+  final date_controler = TextEditingController();
+  List<Widget> elem = [];
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+
+
 
   @override
   Widget build(BuildContext context) {
-    
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -90,26 +52,47 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(title),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              if(name_controler.text.isNotEmpty && date_controler.text.isNotEmpty){
+                setState(() {
+                  elem.add(ExamDate(name: name_controler.text, date: date_controler.text));
+                });
+
+              }
+            },
             icon: const Icon(Icons.add),
           )
         ],
       ),
       body: Column(
         children: [
-          const TextField(),
-          const TextField(),
+          Padding(
+            child: TextField(
+              controller: name_controler,
+              decoration: const InputDecoration(
+                  border: OutlineInputBorder(), hintText: 'Enter Name of Exam'),
+            ),
+            padding: const EdgeInsets.all(5),
+          ),
+          Padding(
+            child: TextField(
+              controller: date_controler,
+              decoration: const InputDecoration(
+                  border: OutlineInputBorder(), hintText: 'Enter Date of Exam'),
+            ),
+            padding: const EdgeInsets.all(5),
+          ),
           Expanded(
             child: ListView.builder(
               shrinkWrap: true,
-              itemCount: elements.length,
+              itemCount: elem.length,
               itemBuilder: (contx, index) {
-                return ExamDate(name: widget.elements[index], date: elements[index]);
+                return elem[index];
               },
-            ),),
+            ),
+          ),
         ],
       ),
-
     );
   }
 }
