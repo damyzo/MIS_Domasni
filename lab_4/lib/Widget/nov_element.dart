@@ -39,12 +39,12 @@ class _NovElementState extends State<NovElement> {
         children: [
           TextField(
             controller: _nameController,
-            decoration: InputDecoration(labelText: "Naslov"),
+            decoration: InputDecoration(labelText: "Ime na predmet"),
             onSubmitted: (_) => {},
           ),
           TextField(
             controller: _dateController,
-            decoration: InputDecoration(labelText: "Vrednost"),
+            decoration: InputDecoration(labelText: "Datum"),
             onSubmitted: (_) => {},
             keyboardType: TextInputType.datetime,
           ),

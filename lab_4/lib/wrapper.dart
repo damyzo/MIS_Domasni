@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lab_4/authenticate/sign_in_page.dart';
 
 import 'home/home.dart';
 import 'main.dart';
@@ -8,6 +9,6 @@ class Wrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MyHomePage(title: "185025 Damjan Ilievski");
+    return const SignIn();
   }
 }
