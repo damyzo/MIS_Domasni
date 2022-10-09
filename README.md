@@ -1,1 +1,2 @@
-# MSI_Domasni
+# MIS_Domasni
+Mobile information systems
